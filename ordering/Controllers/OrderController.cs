@@ -22,11 +22,11 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost("", Name = "SubmitOrder")]
-    public async Task<IActionResult> Submit(OrderForCreation order)
+    public IActionResult Submit(OrderForCreation order)
     {
         logger.LogInformation($"Received a new order from {order.CustomerDetails.Name}");
         SendAppInsightsTelemetryOrderProcessed();
-        await emailSender.SendEmailForOrder(order);
+        emailSender.SendEmailForOrder(order);
         return Ok();
     }
 

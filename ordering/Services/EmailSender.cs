@@ -11,7 +11,7 @@ public class EmailSender
         this.logger = logger;
     }
 
-    public async Task SendEmailForOrder(OrderForCreation order)
+    public void SendEmailForOrder(OrderForCreation order)
     {
         logger.LogInformation($"Received a new order for {order.CustomerDetails.Email}");
         logger.LogWarning("Not using Dapr yet, so no email sent");

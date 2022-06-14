@@ -57,11 +57,11 @@ public class EventRepository : IEventRepository
         });
     }
 
-    public async Task<IEnumerable<Event>> GetEvents()
+    public IEnumerable<Event> GetEvents()
     {
         try
         {
-            var connectionString = await GetConnectionString();
+            var connectionString =  GetConnectionString();
             logger.LogInformation($"Connection string {connectionString}");
         }
         catch (Exception e)
@@ -71,9 +71,9 @@ public class EventRepository : IEventRepository
         return events;
     }
 
-    private async Task<string> GetConnectionString()
+    private string GetConnectionString()
     {
-        return options.Value?.CatalogConnectionString;
+        return options?.Value?.CatalogConnectionString ?? String.Empty;
     }
 
     public Task<Event> GetEventById(Guid eventId)

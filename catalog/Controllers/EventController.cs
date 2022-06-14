@@ -17,9 +17,9 @@ public class EventController : ControllerBase
     }
 
     [HttpGet(Name = "GetEvents")]
-    public async Task<IEnumerable<Event>> GetAll()
+    public  IEnumerable<Event> GetAll()
     {
-      return await eventRepository.GetEvents();
+      return eventRepository.GetEvents();
     }
 
     [HttpGet("{id}", Name = "GetById")]
