@@ -20,7 +20,8 @@
 	"extensions": [
 		"ms-dotnettools.csharp",
 		"ms-azuretools.vscode-dapr",
-		"ms-vscode.powershell"
+		"ms-vscode.powershell",
+		"humao.rest-client"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
