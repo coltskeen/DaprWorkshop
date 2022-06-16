@@ -10,10 +10,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IShoppingBasketService, InMemoryShoppingBasketService>();
 builder.Services.AddHttpClient<IEventCatalogService, EventCatalogService>(
-    (provider, client) =>
-        client.BaseAddress =
-            new Uri(provider.GetService<IConfiguration>()?["ApiConfigs:EventCatalog:Uri"] ?? 
-            throw new InvalidOperationException("Missing config")));
+    (provider, client) =>{
+        client.BaseAddress = new Uri(provider.GetService<IConfiguration>()?["ApiConfigs:EventCatalog:Uri"] ?? throw new InvalidOperationException("Missing config"));
+    });
+
 builder.Services.AddHttpClient<IOrderSubmissionService, HttpOrderSubmissionService>(
     (provider, client) => {
         client.BaseAddress = new Uri(provider.GetService<IConfiguration>()?["ApiConfigs:Ordering:Uri"] ?? throw new InvalidOperationException("Missing config"));
