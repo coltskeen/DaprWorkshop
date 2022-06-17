@@ -1,23 +1,23 @@
 ﻿using Dapr.Client;
 using GloboTicket.Frontend.Models;
 using GloboTicket.Frontend.Models.Api;
+using GloboTicket.Frontend.Services.ShoppingBasket;
 
-
-namespace GloboTicket.Frontend.Services;
+namespace GloboTicket.Frontend.Services.ShoppingBasket;
 
 public class DaprClientStateStoreShoppingBasket : IShoppingBasketService
 {
     private readonly DaprClient daprClient;
     private readonly IEventCatalogService eventCatalogService;
     private readonly Settings settings;
-    private readonly ILogger<DaprStateStoreShoppingBasket> logger;
+    private readonly ILogger<DaprClientStateStoreShoppingBasket> logger;
     private const string stateStoreName = "shopstate";
 
     public DaprClientStateStoreShoppingBasket(
         DaprClient daprClient,
         IEventCatalogService eventCatalogService,
         Settings settings,
-        ILogger<DaprStateStoreShoppingBasket> logger)
+        ILogger<DaprClientStateStoreShoppingBasket> logger)
     {
         this.daprClient = daprClient;
         this.eventCatalogService = eventCatalogService;

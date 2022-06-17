@@ -1,6 +1,6 @@
 ﻿using GloboTicket.Frontend.Models.Api;
 
-namespace GloboTicket.Frontend.Services;
+namespace GloboTicket.Frontend.Services.ShoppingBasket;
 
 /// <summary>
 ///  Format in which we'll cache the basket in the Dapr state store
