@@ -1,12 +1,17 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: pubsub
+  name: shopstate
 spec:
-  type: pubsub.redis
+  type: state.redis
   version: v1
   metadata:
   - name: redisHost
     value: daprworkshop-redis-master:6379
   - name: redisPassword
-    value: N8IVeZRQki # Change this password
+    secretKeyRef:
+      name: daprworkshop-redis
+      key:  redis-password
+
+auth:
+  secretStore: kubernetes

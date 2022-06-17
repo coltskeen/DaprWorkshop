@@ -42,16 +42,6 @@
       "name": ".NET Core Attach",
       "type": "coreclr",
       "request": "attach"
-    },
-    {
-      "name": "Docker Frontend Attach",
-      "type": "docker",
-      "request": "attach",
-      "platform": "netCore",
-      "containerName": "globoticket-dapr_frontend_1",
-      "sourceFileMap": {
-          "/src": "${workspaceFolder}"
-      }
-  },
+    }
   ]
 }

@@ -9,9 +9,4 @@ spec:
   - name: redisHost
     value: daprworkshop-redis-master:6379
   - name: redisPassword
-    secretKeyRef:
-      name: daprworkshop-redis
-      key:  redis-password
-
-auth:
-  secretStore: kubernetes
+    value: N8IVeZRQki # Change this password
