@@ -14,8 +14,8 @@ services:
       - ApiConfigs__EventCatalog__Uri=http://catalog
       - ApiConfigs__Ordering__Uri=http://ordering
     ports:
-      - "5002:80"
-      - "5001:443"
+      - "5001:80"
+      - "5002:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
