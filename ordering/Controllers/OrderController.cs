@@ -3,6 +3,7 @@ using GloboTicket.Ordering.Services;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.AspNetCore.Mvc;
+using Dapr;
 
 namespace GloboTicket.Ordering.Controllers;
 
@@ -22,6 +23,7 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost("", Name = "SubmitOrder")]
+    [Topic("pubsub", "orders")]
     public IActionResult Submit(OrderForCreation order)
     {
         logger.LogInformation($"Received a new order from {order.CustomerDetails.Name}");

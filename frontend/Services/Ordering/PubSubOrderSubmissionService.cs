@@ -5,12 +5,12 @@ using Dapr.Client;
 
 namespace GloboTicket.Frontend.Services.Ordering;
 
-public class HttpOrderSubmissionService : IOrderSubmissionService
+public class PubSubOrderSubmissionService : IOrderSubmissionService
 {
     private readonly IShoppingBasketService shoppingBasketService;
     private readonly DaprClient orderingClient;
 
-    public HttpOrderSubmissionService(IShoppingBasketService shoppingBasketService, DaprClient orderingClient)
+    public PubSubOrderSubmissionService(IShoppingBasketService shoppingBasketService, DaprClient orderingClient)
     {
         this.shoppingBasketService = shoppingBasketService;
         this.orderingClient = orderingClient;
@@ -34,7 +34,7 @@ public class HttpOrderSubmissionService : IOrderSubmissionService
             CreditCardExpiryDate = checkoutViewModel.CreditCardDate
         };
         // make a synchronous call to the ordering microservice
-        await orderingClient.InvokeMethodAsync<OrderForCreation>("ordering", "order", order);  
+        await orderingClient.PublishEventAsync("pubsub", "orders", order); 
         // can be a validation error - haven't implemented validation yet
         // var s = await response.Content.ReadAsStringAsync();
         // response.EnsureSuccessStatusCode();
