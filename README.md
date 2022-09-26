@@ -8,7 +8,7 @@ In this workshop, you'll get hands on experience in building your own microservi
 
 State management
 Service discovery
-Pub/sub
+Publish / Subscribe
 Distributed Tracing
 
 We'll be building the application using ASP.NET Core, C#, Docker & Kubernetes.
@@ -25,4 +25,4 @@ For this workshop we are using an application called GloboTicket that is here in
 You can find the Hands-On lab description in more details here:
 
 
-Teh workshop description can be found [here:](https://github.com/XpiritCommunityEvents/DaprWorkshop/wiki).
+The workshop description can be found [here:](https://github.com/XpiritCommunityEvents/DaprWorkshop/wiki).
