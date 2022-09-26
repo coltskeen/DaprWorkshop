@@ -25,7 +25,7 @@ public class DaprClientStateStoreShoppingBasket : IShoppingBasketService
         this.logger = logger;
     }
 
-    public async Task<BasketLine>  statToBasket(Guid basketId, BasketLineForCreation basketLineForCreation)
+    public async Task<BasketLine> AddToBasket(Guid basketId, BasketLineForCreation basketLineForCreation)
     {
         logger.LogInformation($"ADD TO BASKET {basketId}");
         var basket = await GetBasketFromStateStore(basketId);
